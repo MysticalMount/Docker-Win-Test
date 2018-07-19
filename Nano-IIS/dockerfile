@@ -1,0 +1,9 @@
+FROM microsoft/nanoserver
+
+RUN mkdir C:\Deploy & mkdir C:\Deploy\IIS-Nano & mkdir C:\Temp & mkdir C:\Temp\Transfer
+	
+COPY Deploy.ps1 \Deploy
+COPY NanoIIS1.cab \Deploy
+COPY NanoIIS2.cab \Deploy
+
+RUN Powershell.exe C:\Deploy\Deploy.ps1
